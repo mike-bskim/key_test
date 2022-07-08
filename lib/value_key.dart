@@ -17,7 +17,6 @@ class ValueKeyTestState extends State<ValueKeyTest> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Value Key'),
-        // backgroundColor: Colors.redAccent,
         centerTitle: true,
       ),
       body: GestureDetector(
@@ -32,12 +31,14 @@ class ValueKeyTestState extends State<ValueKeyTest> {
               if (emailField)
                 const TextField(
                   key: ValueKey(1),
+                  // controller 를 사용하면 key 를 사용한 것과 동일한 결과임
                   // controller: idController,
                   decoration: InputDecoration(labelText: 'Enter "dice"'),
                   keyboardType: TextInputType.emailAddress,
                 ),
               const TextField(
                 key: ValueKey(2),
+                // controller 를 사용하면 key 를 사용한 것과 동일한 결과임
                 // controller: pwController,
                 decoration: InputDecoration(labelText: 'Enter Password'),
                 keyboardType: TextInputType.text,
@@ -50,7 +51,6 @@ class ValueKeyTestState extends State<ValueKeyTest> {
                 height: 50.0,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    // primary: Colors.orangeAccent,
                     minimumSize: const Size(150, 50),
                   ),
                   // color:

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:fluttertoast/fluttertoast.dart';
 
-// StatefulWidget 위젯은 Key 자동생성됨
 class UniqueKeyTest extends StatefulWidget {
   const UniqueKeyTest({Key? key}) : super(key: key);
 
@@ -11,6 +10,8 @@ class UniqueKeyTest extends StatefulWidget {
 }
 
 class UniqueKeyTestState extends State<UniqueKeyTest> {
+
+// key 를 주지않으면 2개의 변경결과를 rendering 시 매칭하지 못한다
   List<Widget> tiles = [
     StatefulColorfulTile(
       key: UniqueKey(),
@@ -25,7 +26,7 @@ class UniqueKeyTestState extends State<UniqueKeyTest> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('General Key'),
+        title: const Text('Unique Key'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,6 +46,7 @@ class UniqueKeyTestState extends State<UniqueKeyTest> {
     );
   }
 
+// 첫째 배열을 제거해서 그것을 2번째 배열에 넣는다
   void swapTiles() {
     setState(() {
       tiles.insert(1, tiles.removeAt(0));

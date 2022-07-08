@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'global_key.dart';
+import 'scaffoldmessenger_key.dart';
 import 'unique_key.dart';
 import 'value_key.dart';
 
 void main() => runApp(
-  const MaterialApp(
+  MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: Home(),
+    scaffoldMessengerKey: rootScaffoldKey,
+    home: const Home(),
   ),
 );
 
@@ -18,8 +21,8 @@ class Home extends StatelessWidget {
     ButtonStyle elevatedButtonStyle =
     ElevatedButton.styleFrom(minimumSize: const Size(330.0, 40.0));
 
-    // Divider divider = const Divider(
-    //     height: 16, thickness: 1, indent: 16, endIndent: 16, color: Colors.grey);
+    Divider divider = const Divider(
+        height: 16, thickness: 1, color: Colors.white);
 
     TextStyle textStyle = const TextStyle(fontSize: 18);
 
@@ -41,12 +44,33 @@ class Home extends StatelessWidget {
                 ));
               },
             ),
+            divider,
             ElevatedButton(
               style: elevatedButtonStyle,
               child: Text("Value KEY 예제", style: textStyle),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const ValueKeyTest(),
+                ));
+              },
+            ),
+            divider,
+            ElevatedButton(
+              style: elevatedButtonStyle,
+              child: Text("Global KEY 예제", style: textStyle),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const GlobalKeyTest(),
+                ));
+              },
+            ),
+            divider,
+            ElevatedButton(
+              style: elevatedButtonStyle,
+              child: Text("Scaffold Messenger KEY 예제", style: textStyle),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => const ScaffoldMessengerKeyTest(),
                 ));
               },
             ),
